@@ -23,9 +23,8 @@ def nxRoute(matrix,loc1,loc2):
   end = (loc2[0], loc2[1])
   G = nx.grid_2d_graph(rows,cols)
   pos = {(x,y):(y,-x) for x,y in G.nodes()}
-  crds =  nx.bidirectional_shortest_path(G, source=start, target=end)
   #crds = astar_path(G, source=start, target=end)
   #print('That took {} seconds'.format(time.time() - starttime))
   #print(crds)
   #print("Stop")
-  return crds
+  return nx.bidirectional_shortest_path(G, source=start, target=end)
